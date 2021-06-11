@@ -537,30 +537,32 @@ function laplaceB(x, y) {
   return sumB;
 }
 function touchStarted(){
-  if(mouseX<height/10&mouseY>height-height/10&mouseY<height){
+ let tx = touches[0].x;
+ let ty = touches[0].y;
+  if(tx<height/10&ty>height-height/10&ty<height){
 
     pause = toggle(pause);
   
   }
-  if(mouseX<menuSize&mouseX>height/10&mouseY>height-height/10&mouseY<height){
+  if(tx<menuSize&tx>height/10&ty>height-height/10&ty<height){
 
     
      let outputImage = get(menuSize,0,width,height);
     save(outputImage,"output.png")
   
   }
-  let mx = floor(mouseX/sx);
-  let my = floor(mouseY/sy);
+  let mx = floor(tx/sx);
+  let my = floor(ty/sy);
   
   if(menu ==1){
-    slider.mousePressed(mouseX,mouseY);
+    slider.mousePressed(tx,ty);
   }
   slider.u();
 }
 function touchEnded(){
       
-  let mx = floor(mouseX/sx);
-  let my = floor(mouseY/sy);
+  let mx = floor(touches[0].x/sx);
+  let my = floor(touches[0].y/sy);
   if(menu ==1){
     slider.mouseReleased();
   }
@@ -568,14 +570,14 @@ function touchEnded(){
 }
 function touchMoved(){
       
-  let mx = floor(mouseX/sx);
-  let my = floor(mouseY/sy);
+  let mx = floor(touches[0].x/sx);
+  let my = floor(touches[0].y/sy);
   let radius = 10;
   if(menu ==1){
-    slider.mouseDragged(mouseX,mouseY);
+    slider.mouseDragged(touches[0].x,touches[0].y);
   }
   else{
-  if(mouseX>menuSize+(radius*sx)){
+  if(touches[0].x>menuSize+(radius*sx)){
   
   
   if(mx>5&mx<resX-5+menuSize/sx){
@@ -585,10 +587,10 @@ function touchMoved(){
           let dist = createVector(0,0).dist(createVector(i,j));
           if(dist<5){
             if(mouseButton==LEFT){
-        grid[floor((mouseX-menuSize)/sx+i)][floor(mouseY/sy+j)].b = 1;
+        grid[floor((touches[0].x-menuSize)/sx+i)][floor(touches[0].y/sy+j)].b = 1;
             }
             if(mouseButton==RIGHT){
-        grid[floor((mouseX-menuSize)/sx+i)][floor(mouseY/sy+j)].a = 1;
+        grid[floor((touches[0].x-menuSize)/sx+i)][floor(touches[0].y/sy+j)].a = 1;
             }
           }
       }
