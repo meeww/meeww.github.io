@@ -31,11 +31,18 @@ function preload() {
   pBButton = playButton;
   inputImage = playButton;
 }
-function reload(){
+function resSlider(){
 	resX= width/slider9.value();
 	resY = height/slider9.value();
+	reload();
+}
+
+function reload(){
+	
 	sx = width/resX;
 	sy = height/resY;
+	grid = [];
+    next = [];
 	reset();
 	Seed();
 }
@@ -74,14 +81,7 @@ function setup() {
 
   resX=width/10;
   resY=height/10;
-  sx = width/resX;
-  sy = height/resY;
-  pixelDensity(1);
-  grid = [];
-  next = [];
-
-  reset();
-  Seed();
+  reload();
   menuStart(1,0.6,0.06,0.03,1,1)
  
 }
@@ -175,7 +175,7 @@ function menuStart(da,db,fe,gr,ti,st){
   slider9 = createSlider(1,10,5,1);
   
   
-  slider9.input(reload);
+  slider9.input(resSlider);
   slider7 = createSlider(0,1,0,0.01);//noise a
   slider8 = createSlider(0,1,0,0.01);//noise b
   hideSliders();
