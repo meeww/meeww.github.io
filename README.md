@@ -1,6 +1,7 @@
 # meeww.github.io
  
-[Reaction Diffusion Simulation](https://meeww.github.io/index.html)
+[Reaction Diffusion Simulation - Interactive Demo](https://meeww.github.io/index.html)
+
 
 
 This is a p5.js app for simulating [Reaction - Diffusion , Karl Sims](https://www.karlsims.com/rd.html), [Reaction Diffusion, Daniel Shiffman](https://www.youtube.com/watch?v=BV9ny785UNc&t=1303s).
@@ -13,7 +14,7 @@ Feel free to re-use any of this!
 
 
 
-Help: 
+Help Section: 
 
 	Parameters:
 			Chemical A: Amount of Chemical A per pixel

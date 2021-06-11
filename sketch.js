@@ -464,8 +464,7 @@ function draw() {
       
       var a = grid[x][y].a;
       var b = grid[x][y].b;
-	  *slider7.value()
-	  *slider8.value()
+
 	  let grow = slider7.value();
 	  let kill = slider8.value();
       next[x][y].a = a +
