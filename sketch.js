@@ -543,7 +543,7 @@ function mousePressed(){
   
   }
   function touchStarted(){
-	//  if(touch[0].x<height/10&touch[0].y>height-height/10&touch[0].y<height){
+	//  if(touches[0].x<height/10&touches[0].y>height-height/10&touches[0].y<height){
 		  pause = toggle(pause);
 	//	  }
   }
