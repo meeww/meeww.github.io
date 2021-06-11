@@ -417,22 +417,22 @@ function menuUpdate(){
     noStroke();
   text("Chemical A", 1,55);
     
-  text("Chemical B", 1,110);
-  text("Fade Rate", 1,165);
-  text("Grow Rate", 1,220);
-  text("Time Rate",1,285)
-  text("Time Step",1,340)
+  text("Chemical B", 1,115);
+  text("Fade Rate", 1,170);
+  text("Grow Rate", 1,225);
+  text("Time Rate",1,280)
+  text("Time Step",1,345)
   
-  text("Resolution",1,395)
+  text("Resolution",1,400)
     
     textSize(25);
-    text("- "+dA.toFixed(2),45,85);
+    text("- "+dA.toFixed(2),45,80);
     text("- "+dB.toFixed(2),45,140);
-    text("- "+k.toFixed(2),45,195);
-    text("- "+feed.toFixed(2),45,250);
-    text("- "+dT.toFixed(2),45,305);
-    text("- "+iterations.toFixed(2),45,360);
-	text("- "+slider9.value().toFixed(2),45,415);
+    text("- "+k.toFixed(2),45,200);
+    text("- "+feed.toFixed(2),45,260);
+    text("- "+dT.toFixed(2),45,320);
+    text("- "+iterations.toFixed(2),45,380);
+	text("- "+slider9.value().toFixed(2),45,440);
   pop();
     }
   }
@@ -443,11 +443,11 @@ function menuUpdate(){
   }
   if(menu==2){
     push();
-    scale((1/sy)*50)
+
   fill(255);
   noStroke();
-  text("Noise A: " + slider7.value(), 1,20);
-  text("Noise B: " + slider8.value(), 1,32); 
+  text("Noise A: " + slider7.value(), 45,80);
+  text("Noise B: " + slider8.value(), 45,140); 
   
    
   pop();
