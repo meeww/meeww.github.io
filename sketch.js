@@ -470,11 +470,11 @@ function draw() {
       next[x][y].a = a +
         ((dA * laplaceA(x, y)) -
         (a * b * b) +
-        (grow * (1 - a)))*dT;
+        (feed * (1 - a)))*dT;
       next[x][y].b = b +
         ((dB * laplaceB(x, y)) +
         (a * b * b) -
-        ((kill + grow) * b))*dT;
+        ((k + feed) * b))*dT;
 
       
 	next[x][y].a*=(1+(noise(x*0.1,y*0.1,x*y)*slider7.value()))
