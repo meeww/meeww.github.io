@@ -417,15 +417,15 @@ function menuUpdate(){
     noStroke();
   text("Chemical A", 1,55);
     
-  text("Chemical B", 1,115);
-  text("Fade Rate", 1,170);
-  text("Grow Rate", 1,225);
-  text("Time Rate",1,280)
-  text("Time Step",1,345)
+  text("Chemical B", 1,120);
+  text("Fade Rate", 1,180);
+  text("Grow Rate", 1,240);
+  text("Time Rate",1,300)
+  text("Time Step",1,360)
   
-  text("Resolution",1,400)
+  text("Resolution",1,420)
     
-    textSize(25);
+    textSize(22);
     text("- "+dA.toFixed(2),90,80);
     text("- "+dB.toFixed(2),90,140);
     text("- "+k.toFixed(2),90,200);
@@ -446,8 +446,8 @@ function menuUpdate(){
 
   fill(255);
   noStroke();
-  text("Noise A: " + slider7.value(), 45,110);
-  text("Noise B: " + slider8.value(), 45,170); 
+  text("Noise A: " + slider7.value(), 15,110);
+  text("Noise B: " + slider8.value(), 15,170); 
   
    
   pop();
