@@ -536,48 +536,51 @@ function laplaceB(x, y) {
   sumB += grid[x - 1][y + 1].b * 0.05;
   return sumB;
 }
-function touchStarted(){
- let tx = touches[0].x;
- let ty = touches[0].y;
-  if(tx<height/10&ty>height-height/10&ty<height){
+function mousePressed(){
+  if(mouseX<height/10&mouseY>height-height/10&mouseY<height){
 
     pause = toggle(pause);
   
   }
-  if(tx<menuSize&tx>height/10&ty>height-height/10&ty<height){
+  function touchStarted(){
+	//  if(touch[0].x<height/10&touch[0].y>height-height/10&touch[0].y<height){
+		  pause = toggle(pause);
+	//	  }
+  }
+  if(mouseX<menuSize&mouseX>height/10&mouseY>height-height/10&mouseY<height){
 
     
      let outputImage = get(menuSize,0,width,height);
     save(outputImage,"output.png")
   
   }
-  let mx = floor(tx/sx);
-  let my = floor(ty/sy);
+  let mx = floor(mouseX/sx);
+  let my = floor(mouseY/sy);
   
   if(menu ==1){
-    slider.mousePressed(tx,ty);
+    slider.mousePressed(mouseX,mouseY);
   }
   slider.u();
 }
-function touchEnded(){
+function mouseReleased(){
       
-  let mx = floor(touches[0].x/sx);
-  let my = floor(touches[0].y/sy);
+  let mx = floor(mouseX/sx);
+  let my = floor(mouseY/sy);
   if(menu ==1){
     slider.mouseReleased();
   }
   slider.u();
 }
-function touchMoved(){
+function mouseDragged(){
       
-  let mx = floor(touches[0].x/sx);
-  let my = floor(touches[0].y/sy);
+  let mx = floor(mouseX/sx);
+  let my = floor(mouseY/sy);
   let radius = 10;
   if(menu ==1){
-    slider.mouseDragged(touches[0].x,touches[0].y);
+    slider.mouseDragged(mouseX,mouseY);
   }
   else{
-  if(touches[0].x>menuSize+(radius*sx)){
+  if(mouseX>menuSize+(radius*sx)){
   
   
   if(mx>5&mx<resX-5+menuSize/sx){
@@ -587,10 +590,10 @@ function touchMoved(){
           let dist = createVector(0,0).dist(createVector(i,j));
           if(dist<5){
             if(mouseButton==LEFT){
-        grid[floor((touches[0].x-menuSize)/sx+i)][floor(touches[0].y/sy+j)].b = 1;
+        grid[floor((mouseX-menuSize)/sx+i)][floor(mouseY/sy+j)].b = 1;
             }
             if(mouseButton==RIGHT){
-        grid[floor((touches[0].x-menuSize)/sx+i)][floor(touches[0].y/sy+j)].a = 1;
+        grid[floor((mouseX-menuSize)/sx+i)][floor(mouseY/sy+j)].a = 1;
             }
           }
       }
