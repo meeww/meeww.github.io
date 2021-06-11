@@ -187,7 +187,7 @@ function menuStart(da,db,fe,gr,ti,st){
   slider8.style('width', '120px');
   button0 = createButton("PARAMETERS");
   button0.position(10,20);
-  button0.style('width','130px')
+  button0.style('width','130px','height','50px')
   button0.mousePressed(param);
   
   button1 = createButton("RANDOMIZE");
@@ -504,8 +504,8 @@ function draw() {
   }
 
   imageMode(CENTER);
-  image(pBButton,10,height-height/20,50,50)
-  image(saveButton,60,height-height/20,50,50)
+  image(pBButton,30,height-height/20,50,50)
+  image(saveButton,80,height-height/20,50,50)
 }
 
 
