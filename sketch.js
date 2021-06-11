@@ -446,8 +446,8 @@ function menuUpdate(){
 
   fill(255);
   noStroke();
-  text("Noise Fade: " + slider7.value(), 15,110);
-  text("Noise Grow: " + slider8.value(), 15,170); 
+  text("Noise A: " + slider7.value(), 15,110);
+  text("Noise B: " + slider8.value(), 15,170); 
   
    
   pop();

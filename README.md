@@ -35,7 +35,7 @@ Help Section:
 			Colour Pickers (Bottom): Used to set custom colours for the colour ramp
 			Randomize: Sets all colours to new random colours.
 	Styles:
-			Noise Fade: Changes how much noise affects the grow rate of chemicals
-			Noise Grow: Changes how much noise affects the fade rate of chemicals
+			Noise Fade: Changes how much noise affects chemical A
+			Noise Grow: Changes how much noise affects chemical B
 	Presets:
 			Preset parameters for cool looking patterns!
