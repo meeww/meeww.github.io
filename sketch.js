@@ -172,7 +172,7 @@ function menuStart(da,db,fe,gr,ti,st){
   slider4 = createSlider(0.01, 0.1, gr,0.0001);//feed
   slider5 = createSlider(0,1,ti,0.01); //reaction rate
   slider6 = createSlider(1,10,st,1); //iterations
-  slider9 = createSlider(2,10,5,1);
+  slider9 = createSlider(2,10,8,1);
   
   
   slider9.input(resSlider);
