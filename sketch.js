@@ -536,7 +536,7 @@ function laplaceB(x, y) {
   sumB += grid[x - 1][y + 1].b * 0.05;
   return sumB;
 }
-function mousePressed(){
+function touchStarted(){
   if(mouseX<height/10&mouseY>height-height/10&mouseY<height){
 
     pause = toggle(pause);
@@ -557,7 +557,7 @@ function mousePressed(){
   }
   slider.u();
 }
-function mouseReleased(){
+function touchEnded(){
       
   let mx = floor(mouseX/sx);
   let my = floor(mouseY/sy);
@@ -566,7 +566,7 @@ function mouseReleased(){
   }
   slider.u();
 }
-function mouseDragged(){
+function touchMoved(){
       
   let mx = floor(mouseX/sx);
   let my = floor(mouseY/sy);
