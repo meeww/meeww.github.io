@@ -180,13 +180,13 @@ function menuStart(da,db,fe,gr,ti,st){
   slider8 = createSlider(0,1,0,0.01);//noise b
   hideSliders();
   
-  slider1.position(10, 55);
-  slider2.position(10,115);
-  slider3.position(10,175);
-  slider4.position(10,235);
-  slider5.position(10,295);
-  slider6.position(10,355);
-  slider9.position(10,415);
+  slider1.position(10, 60);
+  slider2.position(10,120);
+  slider3.position(10,180);
+  slider4.position(10,240);
+  slider5.position(10,300);
+  slider6.position(10,360);
+  slider9.position(10,420);
   
   slider7.position(10,115);
   slider8.position(10,175);
