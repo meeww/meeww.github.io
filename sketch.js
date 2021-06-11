@@ -429,7 +429,7 @@ function menuUpdate(){
     text("- "+dA.toFixed(2),90,80);
     text("- "+dB.toFixed(2),90,140);
     text("- "+k.toFixed(2),90,200);
-    text("- "+feed.toFixed(2),45,260);
+    text("- "+feed.toFixed(2),90,260);
     text("- "+dT.toFixed(2),90,320);
     text("- "+iterations.toFixed(2),90,380);
 	text("- "+slider9.value().toFixed(2),90,440);
