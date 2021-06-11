@@ -466,7 +466,7 @@ function draw() {
       var b = grid[x][y].b;
 
       let grow=feed+(noise(x*0.1,y*0.1,x*y)*slider7.value()*0.1)
-      let kill=k+((noise(x*0.1,y*0.1,x*y)*slider8.value()*0.1)
+      let kill=k+(noise(x*0.1,y*0.1,x*y)*slider8.value()*0.1)
 
       next[x][y].a = a +
         ((dA * laplaceA(x, y)) -
