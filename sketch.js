@@ -583,6 +583,34 @@ function mouseReleased(){
   }
   slider.u();
 }
+function touchMoved(){
+	      
+  let mx = floor(touches[0].x/sx);
+  let my = floor(touches[0].y/sy);
+  let radius = 10;
+  if(menu ==1){
+    slider.mouseDragged(touches[0].x,touches[0].y);
+  }
+  else{
+  if(touches[0].x>menuSize+(radius*sx)){
+  
+  
+  if(mx>5&mx<resX-5+menuSize/sx){
+    if(my>5&my<resY-5){
+      for(let i = -5; i < 5; i++){
+        for(let j = -5; j < 5; j++){
+          let dist = createVector(0,0).dist(createVector(i,j));
+          if(dist<5){
+        grid[floor((touches[0].x-menuSize)/sx+i)][floor(touches[0].y/sy+j)].b = 1;
+          }
+      }
+      }
+    }
+  }
+  }
+  }
+  slider.u();
+}
 function mouseDragged(){
       
   let mx = floor(mouseX/sx);
