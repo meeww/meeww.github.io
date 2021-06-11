@@ -1,7 +1,16 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow:auto;
 }
 canvas {
   display: block;
+  overflow:auto;
+}
+.scroll-touch {
+  -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+}
+
+.scroll-auto {
+  -webkit-overflow-scrolling: auto; /* Stops scrolling immediately */
 }
