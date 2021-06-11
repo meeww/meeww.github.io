@@ -504,8 +504,8 @@ function draw() {
   }
 
   imageMode(CENTER);
-  image(pBButton,height/30,height-height/20,height/10,height/10)
-  image(saveButton,height/8.5,height-height/20,height/15,height/15)
+  image(pBButton,height/30,height-height/20,height/20,height/20)
+  image(saveButton,height/8.5,height-height/20,height/30,height/30)
 }
 
 
