@@ -542,6 +542,7 @@ function mousePressed(){
     pause = toggle(pause);
   
   }
+
   if(mouseX<menuSize&mouseX>height/10&mouseY>height-height/10&mouseY<height){
 
     
