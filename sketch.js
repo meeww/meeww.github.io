@@ -393,10 +393,8 @@ function menuUpdate(){
   dT = slider5.value();
   iterations = slider6.value();
 
-  resX = width/slider9.value();
-  resY = height/slider9.value();
-  sx = width/resX;
-  sy = width/resY;
+
+
   textSize(3);
 
 
@@ -407,7 +405,7 @@ function menuUpdate(){
     if(para==true){
   push();
     scale((1/sy)*50)
-    
+    noStroke();
   text("Chemical A", 1,10);
     
   text("Chemical B", 1,20.5);
@@ -415,6 +413,8 @@ function menuUpdate(){
   text("Grow Rate", 1,44);
   text("Time Rate",1,55.5)
   text("Time Step",1,67)
+  
+  text("Resolution",1,78.5)
     
     textSize(4);
     text("- "+dA.toFixed(2),20,14.5);
@@ -423,6 +423,7 @@ function menuUpdate(){
     text("- "+feed.toFixed(2),20,50.5);
     text("- "+dT.toFixed(2),20,62.5);
     text("- "+iterations.toFixed(2),20,74.5);
+	text("- "+slider9.value().toFixed(2),20,86.5);
   pop();
     }
   }
