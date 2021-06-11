@@ -426,13 +426,13 @@ function menuUpdate(){
   text("Resolution",1,400)
     
     textSize(25);
-    text("- "+dA.toFixed(2),45,80);
-    text("- "+dB.toFixed(2),45,140);
-    text("- "+k.toFixed(2),45,200);
+    text("- "+dA.toFixed(2),90,80);
+    text("- "+dB.toFixed(2),90,140);
+    text("- "+k.toFixed(2),90,200);
     text("- "+feed.toFixed(2),45,260);
-    text("- "+dT.toFixed(2),45,320);
-    text("- "+iterations.toFixed(2),45,380);
-	text("- "+slider9.value().toFixed(2),45,440);
+    text("- "+dT.toFixed(2),90,320);
+    text("- "+iterations.toFixed(2),90,380);
+	text("- "+slider9.value().toFixed(2),90,440);
   pop();
     }
   }
@@ -446,8 +446,8 @@ function menuUpdate(){
 
   fill(255);
   noStroke();
-  text("Noise A: " + slider7.value(), 45,80);
-  text("Noise B: " + slider8.value(), 45,140); 
+  text("Noise A: " + slider7.value(), 45,110);
+  text("Noise B: " + slider8.value(), 45,170); 
   
    
   pop();
