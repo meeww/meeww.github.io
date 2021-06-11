@@ -446,8 +446,8 @@ function menuUpdate(){
 
   fill(255);
   noStroke();
-  text("Noise A: " + slider7.value(), 15,110);
-  text("Noise B: " + slider8.value(), 15,170); 
+  text("Noise Fade: " + slider7.value(), 15,110);
+  text("Noise Grow: " + slider8.value(), 15,170); 
   
    
   pop();
@@ -464,16 +464,20 @@ function draw() {
       
       var a = grid[x][y].a;
       var b = grid[x][y].b;
+	  *slider7.value()
+	  *slider8.value()
+	  let grow = slider7.value();
+	  let kill = slider8.value();
       next[x][y].a = a +
         ((dA * laplaceA(x, y)) -
         (a * b * b) +
-        (feed * (1 - a)))*dT;
+        (grow * (1 - a)))*dT;
       next[x][y].b = b +
         ((dB * laplaceB(x, y)) +
         (a * b * b) -
-        ((k + feed) * b))*dT;
-      next[x][y].a*=1+(((noise(x*0.1,y*0.1,x*y)*0.1)*slider7.value()))
-      next[x][y].b*=1+((noise(x*0.1,y*0.1,x*y)*slider8.value())*0.1)
+        ((kill + grow) * b))*dT;
+      next[x][y].a*=1+(noise(x*0.1,y*0.1,x*y)*0.1)
+      next[x][y].b*=1+((noise(x*0.1,y*0.1,x*y)*0.1)
       
   
       next[x][y].a = constrain(next[x][y].a, 0, 1);
