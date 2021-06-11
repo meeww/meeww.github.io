@@ -537,21 +537,7 @@ function laplaceB(x, y) {
   return sumB;
 }
 
-function touchStarted(){
-	 if(touches[0].x<height/10&touches[0].y>height-height/10&touches[0].y<height){
 
-    pause = toggle(pause);
-  
-  }
-  
-  if(touches[0].x<menuSize&touches[0].x>height/10&touches[0].y>height-height/10&touches[0].x<height){
-
-    
-     let outputImage = get(menuSize,0,width,height);
-    save(outputImage,"output.png")
-  
-  }
-}
 function touchEnded(){
       
   let mx = floor(touches[0].x/sx);
