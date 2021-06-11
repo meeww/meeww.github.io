@@ -31,7 +31,14 @@ function preload() {
   pBButton = playButton;
   inputImage = playButton;
 }
-
+function reload(){
+	resX= width/slider9.value();
+	resY = height/slider9.value();
+	sx = width/resX;
+	sy = height/resY;
+	reset();
+	Seed();
+}
 let menu = 0;
 
 let sx;
@@ -167,6 +174,8 @@ function menuStart(da,db,fe,gr,ti,st){
   slider6 = createSlider(1,10,st,1); //iterations
   slider9 = createSlider(1,10,5,1);
   
+  
+  slider9.input(reload);
   slider7 = createSlider(0,1,0,0.01);//noise a
   slider8 = createSlider(0,1,0,0.01);//noise b
   hideSliders();
