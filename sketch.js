@@ -153,6 +153,7 @@ function param(){
   slider4.show();
   slider5.show();
   slider6.show();
+  slider9.show();
   }
 }
 function menuStart(da,db,fe,gr,ti,st){
@@ -164,6 +165,8 @@ function menuStart(da,db,fe,gr,ti,st){
   slider4 = createSlider(0.01, 0.1, gr,0.0001);//feed
   slider5 = createSlider(0,1,ti,0.01); //reaction rate
   slider6 = createSlider(1,10,st,1); //iterations
+  slider9 = createSlider(1,10,5,1);
+  
   slider7 = createSlider(0,1,0,0.01);//noise a
   slider8 = createSlider(0,1,0,0.01);//noise b
   hideSliders();
@@ -174,6 +177,8 @@ function menuStart(da,db,fe,gr,ti,st){
   slider4.position(10,235);
   slider5.position(10,295);
   slider6.position(10,355);
+  slider9.position(10,415);
+  
   slider7.position(10,115);
   slider8.position(10,175);
   
@@ -183,6 +188,7 @@ function menuStart(da,db,fe,gr,ti,st){
   slider4.style('width', '80px');
   slider5.style('width', '80px');
   slider6.style('width', '80px');
+  slider9.style('width', '80px');
   slider7.style('width', '120px');
   slider8.style('width', '120px');
   button0 = createButton("PARAMETERS");
@@ -344,6 +350,7 @@ function hideSliders(){
     slider6.hide();
   slider7.hide();
   slider8.hide();
+  slider9.hide();
 }
 function back(){
   menu = 0;
@@ -386,6 +393,10 @@ function menuUpdate(){
   dT = slider5.value();
   iterations = slider6.value();
 
+  resX = width/slider9.value();
+  resY = height/slider9.value();
+  sx = width/resX;
+  sy = width/resY;
   textSize(3);
 
 
