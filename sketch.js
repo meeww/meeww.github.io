@@ -404,12 +404,12 @@ function menuUpdate(){
 
 
 
-  textSize(3);
+  textSize(8);
 
 
   fill(255);
   if(pause==false){
-  textSize(3);
+  textSize(8);
 
     if(para==true){
   push();
@@ -425,7 +425,7 @@ function menuUpdate(){
   
   text("Resolution",1,78.5)
     
-    textSize(4);
+    textSize(9);
     text("- "+dA.toFixed(2),20,14.5);
     text("- "+dB.toFixed(2),20,26.5);
     text("- "+k.toFixed(2),20,38.5);
