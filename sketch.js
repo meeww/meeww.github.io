@@ -543,7 +543,15 @@ function touchStarted(){
   
   }
 }
-
+function touchEnded(){
+      
+  let mx = floor(touches[0].x/sx);
+  let my = floor(touches[0].y/sy);
+  if(menu ==1){
+    slider.mouseReleased();
+  }
+  slider.u();
+}
 function mousePressed(){
   if(mouseX<height/10&mouseY>height-height/10&mouseY<height){
 
