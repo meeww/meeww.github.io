@@ -404,35 +404,35 @@ function menuUpdate(){
 
 
 
-  textSize(25);
+  textSize(20);
 
 
   fill(255);
   if(pause==false){
-  textSize(25);
+  textSize(20);
 
     if(para==true){
   push();
    
     noStroke();
-  text("Chemical A", 1,10);
+  text("Chemical A", 1,55);
     
-  text("Chemical B", 1,20.5);
-  text("Fade Rate", 1,31);
-  text("Grow Rate", 1,44);
-  text("Time Rate",1,55.5)
-  text("Time Step",1,67)
+  text("Chemical B", 1,110);
+  text("Fade Rate", 1,165);
+  text("Grow Rate", 1,220);
+  text("Time Rate",1,285)
+  text("Time Step",1,340)
   
-  text("Resolution",1,78.5)
+  text("Resolution",1,395)
     
-    textSize(30);
-    text("- "+dA.toFixed(2),20,14.5);
-    text("- "+dB.toFixed(2),20,26.5);
-    text("- "+k.toFixed(2),20,38.5);
-    text("- "+feed.toFixed(2),20,50.5);
-    text("- "+dT.toFixed(2),20,62.5);
-    text("- "+iterations.toFixed(2),20,74.5);
-	text("- "+slider9.value().toFixed(2),20,86.5);
+    textSize(25);
+    text("- "+dA.toFixed(2),45,85);
+    text("- "+dB.toFixed(2),45,140);
+    text("- "+k.toFixed(2),45,195);
+    text("- "+feed.toFixed(2),45,250);
+    text("- "+dT.toFixed(2),45,305);
+    text("- "+iterations.toFixed(2),45,360);
+	text("- "+slider9.value().toFixed(2),45,415);
   pop();
     }
   }
