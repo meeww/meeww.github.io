@@ -59,7 +59,7 @@ function handleFile(file) {
 function setup() {
 
   
-  mycanvas = createCanvas(displayWidth, displayHeight-200);
+  mycanvas = createCanvas(windowWidth, windowHeight-200);
   slider = new Slider();
  slider.s();
       slider.u();
