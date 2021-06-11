@@ -476,7 +476,7 @@ function draw() {
         (a * b * b) -
         ((kill + grow) * b))*dT;
       next[x][y].a*=1+(noise(x*0.1,y*0.1,x*y)*0.1)
-      next[x][y].b*=1+((noise(x*0.1,y*0.1,x*y)*0.1)
+      next[x][y].b*=1+(noise(x*0.1,y*0.1,x*y)*0.1)
       
   
       next[x][y].a = constrain(next[x][y].a, 0, 1);
