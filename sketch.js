@@ -465,8 +465,9 @@ function draw() {
       var a = grid[x][y].a;
       var b = grid[x][y].b;
 
-	  let grow = slider7.value();
-	  let kill = slider8.value();
+      let grow+=(noise(x*0.1,y*0.1,x*y)*slider7.value()*0.1)
+      let kill+=((noise(x*0.1,y*0.1,x*y)*slider8.value()*0.1)
+
       next[x][y].a = a +
         ((dA * laplaceA(x, y)) -
         (a * b * b) +
@@ -475,8 +476,7 @@ function draw() {
         ((dB * laplaceB(x, y)) +
         (a * b * b) -
         ((kill + grow) * b))*dT;
-      next[x][y].a*=1+(noise(x*0.1,y*0.1,x*y)*0.1)
-      next[x][y].b*=1+(noise(x*0.1,y*0.1,x*y)*0.1)
+
       
   
       next[x][y].a = constrain(next[x][y].a, 0, 1);
