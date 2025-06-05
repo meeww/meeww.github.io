@@ -1,12 +1,132 @@
-<!-- my-website/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <title>meeww's sandbox</title>
-  </head>
-  <body>
-    <h1>Hello, world. Welcome to my mess.</h1>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Garage Door Scroll Animation</title>
+  <style>
+    html, body {
+      height: 100vh;
+      margin: 0;
+      perspective: 800px;
+      background: #f0f0f0;
+      overflow: hidden;
+      font-family: sans-serif;
+      touch-action: none;
+    }
+    .door {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-style: preserve-3d;
+    }
+    .segment {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 60px;
+      width: 300px;
+      background: #ccc;
+      border: 1px solid #999;
+      box-sizing: border-box;
+      transform-origin: top center;
+    }
+  </style>
+</head>
+<body>
+  <div class="door" id="door"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const door = document.getElementById('door');
+      const count = 8;
+      for (let i = 0; i < count; i++) {
+        const div = document.createElement('div');
+        div.className = 'segment';
+        door.appendChild(div);
+      }
+      const segments = Array.from(door.children);
+      const segHeight = segments[0].offsetHeight;
+      const segWidth = segments[0].offsetWidth;
+      door.style.width = segWidth + 'px';
+      const N = segments.length;
+      const R = segHeight * N;
+      const k = 4 * (Math.sqrt(2) - 1) / 3;
+      const P0 = { y: 0, z: 0 };
+      const P1 = { y: k * R, z: 0 };
+      const P2 = { y: R, z: -(1 - k) * R };
+      const P3 = { y: R, z: -R };
+      function bezierPoint(t) {
+        const u = 1 - t;
+        const y = u * u * u * P0.y + 3 * u * u * t * P1.y + 3 * u * t * t * P2.y + t * t * t * P3.y;
+        const z = u * u * u * P0.z + 3 * u * u * t * P1.z + 3 * u * t * t * P2.z + t * t * t * P3.z;
+        return { y, z };
+      }
+      function bezierTangent(t) {
+        const u = 1 - t;
+        const dy = 3 * u * u * (P1.y - P0.y) + 6 * u * t * (P2.y - P1.y) + 3 * t * t * (P3.y - P2.y);
+        const dz = 3 * u * u * (P1.z - P0.z) + 6 * u * t * (P2.z - P1.z) + 3 * t * t * (P3.z - P2.z);
+        return { dy, dz };
+      }
+      const steps = 50;
+      const lenSamples = [0];
+      let prev = bezierPoint(0);
+      for (let i = 1; i <= steps; i++) {
+        const t = i / steps;
+        const p = bezierPoint(t);
+        const ds = Math.hypot(p.y - prev.y, p.z - prev.z);
+        lenSamples[i] = lenSamples[i - 1] + ds;
+        prev = p;
+      }
+      const totalLength = lenSamples[steps];
+      function arcLengthAt(t) {
+        const scaled = t * steps;
+        const i = Math.floor(scaled);
+        if (i >= steps) return totalLength;
+        const frac = scaled - i;
+        return lenSamples[i] * (1 - frac) + lenSamples[i + 1] * frac;
+      }
+      function tForLength(len) {
+        let low = 0, high = 1;
+        for (let i = 0; i < 20; i++) {
+          const mid = (low + high) / 2;
+          if (arcLengthAt(mid) < len) low = mid; else high = mid;
+        }
+        return (low + high) / 2;
+      }
+      const doorLength = segHeight * N;
+      // no horizontal offset so the door stays centered
+      const offsetX = 0;
+      let progress = 0;
+      const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+      function update() {
+        const baseLen = progress * (totalLength - doorLength);
+        segments.forEach((seg, idx) => {
+          const offset = idx * segHeight;
+          const dist = baseLen + offset;
+          const t = tForLength(dist);
+          const p = bezierPoint(t);
+          const tan = bezierTangent(t);
+          const angle = Math.atan2(-tan.dz, tan.dy);
+          seg.style.transform = `translate3d(${offsetX}px, ${-p.y}px, ${p.z}px) rotateX(${-angle}rad)`;
+        });
+      }
+      window.addEventListener('wheel', e => {
+        progress = clamp(progress + e.deltaY / 1000);
+        update();
+        e.preventDefault();
+      }, { passive: false });
+      let touchY = 0;
+      window.addEventListener('touchstart', e => { touchY = e.touches[0].clientY; }, { passive: true });
+      window.addEventListener('touchmove', e => {
+        const dy = touchY - e.touches[0].clientY;
+        progress = clamp(progress + dy / window.innerHeight);
+        touchY = e.touches[0].clientY;
+        update();
+        e.preventDefault();
+      }, { passive: false });
+      update();
+    });
+  </script>
+</body>
 </html>
